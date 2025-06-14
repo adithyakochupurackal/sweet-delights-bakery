@@ -1,73 +1,42 @@
-import React from 'react';
-import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  useTheme,
-} from '@mui/material';
-import {
-  Cake as CakeIcon,
-  Favorite as FavoriteIcon,
-  EmojiEvents as EmojiEventsIcon,
-  Brush as BrushIcon,
-} from '@mui/icons-material';
+import { Box, Container, Typography, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
+import CakeIcon from '@mui/icons-material/Cake';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import BrushIcon from '@mui/icons-material/Brush';
 
 const features = [
   {
     icon: <CakeIcon sx={{ fontSize: 40 }} />,
-    title: 'Artisanal Quality',
-    description: 'Handcrafted with premium ingredients and traditional techniques.',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FrZXxlbnwwfHwwfHx8MA%3D%3D'
+    title: 'Handcrafted Excellence',
+    description: 'Each cake is meticulously crafted by our expert bakers using only the finest ingredients.',
   },
   {
     icon: <FavoriteIcon sx={{ fontSize: 40 }} />,
     title: 'Made with Love',
-    description: 'Every creation is infused with passion and attention to detail.',
-    image: 'https://images.unsplash.com/photo-1551106652-a5bcf4b29ab6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNha2V8ZW58MHx8MHx8fDA%3D'
+    description: 'We pour our passion into every creation, ensuring each cake is made with care and attention.',
   },
   {
     icon: <EmojiEventsIcon sx={{ fontSize: 40 }} />,
-    title: 'Award Winning',
-    description: 'Recognized for excellence in taste, design, and innovation.',
-    image: 'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNha2V8ZW58MHx8MHx8fDA%3D'
+    title: 'Award-Winning Recipes',
+    description: 'Our signature recipes have won numerous awards and delighted countless customers.',
   },
   {
     icon: <BrushIcon sx={{ fontSize: 40 }} />,
-    title: 'Expert Craftsmanship',
-    description: 'Skilled artisans creating edible works of art.',
-    image: 'https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNha2V8ZW58MHx8MHx8fDA%3D'
+    title: 'Custom Designs',
+    description: 'Transform your vision into reality with our custom cake design service.',
   },
 ];
 
 const About = () => {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{
-        position: 'relative',
         py: 8,
-        overflow: 'hidden',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: 'url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1920&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FrZXxlbnwwfHwwfHx8MA%3D%3D")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.1,
-          zIndex: 0,
-        },
+        background: 'linear-gradient(135deg, #F7F7F7 0%, #FFFFFF 100%)',
       }}
     >
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+      <Container maxWidth="lg">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,12 +50,9 @@ const About = () => {
             gutterBottom
             sx={{
               fontWeight: 700,
+              color: '#333',
               mb: 2,
-              background: 'linear-gradient(45deg, #FF6B6B 30%, #4ECDC4 90%)',
-              backgroundClip: 'text',
-              textFillColor: 'transparent',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
             }}
           >
             Our Story
@@ -97,7 +63,7 @@ const About = () => {
             color="text.secondary"
             sx={{ mb: 6, maxWidth: '800px', mx: 'auto' }}
           >
-            Crafting sweet memories since 2010, we blend traditional techniques with modern creativity
+            Crafting sweet memories since 2010, we blend traditional baking techniques with innovative designs to create unforgettable experiences.
           </Typography>
         </motion.div>
 
@@ -110,74 +76,52 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card
+                <Paper
+                  elevation={0}
                   sx={{
+                    p: 3,
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    borderRadius: 4,
-                    transition: 'transform 0.3s ease-in-out',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: 2,
+                    transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
-                      transform: 'translateY(-8px)',
-                      '& .feature-image': {
-                        transform: 'scale(1.1)',
-                      },
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
                     },
                   }}
                 >
                   <Box
                     sx={{
-                      position: 'relative',
-                      height: 200,
-                      overflow: 'hidden',
+                      color: 'primary.main',
+                      mb: 2,
+                      p: 1,
+                      borderRadius: '50%',
+                      background: 'rgba(255, 107, 107, 0.1)',
                     }}
                   >
-                    <Box
-                      className="feature-image"
-                      sx={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        backgroundImage: `url(${feature.image})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        transition: 'transform 0.3s ease-in-out',
-                      }}
-                    />
-                    <Box
-                      sx={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        background: 'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6))',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      {feature.icon}
-                    </Box>
+                    {feature.icon}
                   </Box>
-                  <CardContent sx={{ flexGrow: 1, bgcolor: 'background.paper' }}>
-                    <Typography
-                      variant="h6"
-                      component="h3"
-                      gutterBottom
-                      sx={{ fontWeight: 600 }}
-                    >
-                      {feature.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {feature.description}
-                    </Typography>
-                  </CardContent>
-                </Card>
+                  <Typography
+                    variant="h6"
+                    component="h3"
+                    gutterBottom
+                    sx={{ fontWeight: 600, color: '#333' }}
+                  >
+                    {feature.title}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="text.secondary"
+                    sx={{ lineHeight: 1.6 }}
+                  >
+                    {feature.description}
+                  </Typography>
+                </Paper>
               </motion.div>
             </Grid>
           ))}
